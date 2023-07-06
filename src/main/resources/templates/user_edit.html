@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+</head>
+<body>
+<h1>Редактирование пользователя</h1>
+
+<form th:action="@{/edit/{id}(id=${user.id})}" method="post" th:object="${user}">
+    <input type="hidden" name="_method" value="PATCH">
+    <div>
+        <label for="age">Возраст:</label>
+        <input type="number" id="age" name="age" th:value="${user.age}" />
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" th:value="${user.email}" />
+    </div>
+    <div>
+        <label for="name">Имя:</label>
+        <input type="text" id="name" name="name" th:value="${user.name}" />
+    </div>
+    <input type="submit" value="Сохранить" />
+</form>
+
+</body>
+</html>
